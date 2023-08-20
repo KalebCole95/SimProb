@@ -1,0 +1,30 @@
+{
+  "name": "Nexus System Controller - Release 4",
+  "build": {"dockerfile" : "../tools/docker/dockerfile"},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-themes",
+        "jeff-hykin.better-cpp-syntax",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools",
+        "go2sh.cmake-integration-vscode",
+        "cheshirekow.cmake-format",
+        "xaver.clang-format",
+        "cschlosser.doxdocgen",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "yzhang.markdown-all-in-one",
+        "jebbs.markdown-extended",
+        "davidanson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "actboy168.tasks",
+        "Gruntfuggly.todo-tree"
+      ]
+    }
+  },
+  "runArgs": ["--name", "SimProb"],
+  "postAttachCommand": ""
+}

@@ -1,0 +1,248 @@
+{
+    ////////////////////////////////////////
+    // Editor Settings
+    ////////////////////////////////////////
+    "editor.parameterHints.enabled": true,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": false
+    },
+    ////////////////////////////////////////
+    // CMake Settings
+    ////////////////////////////////////////
+    "cmake.configureOnOpen": false,
+    "cmake.configureOnStart": false,
+    "cmake.configureOnEdit": true,
+    ////////////////////////////////////////
+    // Language Settings
+    ////////////////////////////////////////
+    "[cpp]": {
+      "editor.formatOnSave": true,
+      "editor.tabSize": 3,
+      "editor.insertSpaces": true,
+      "editor.detectIndentation": false,
+      "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[c]": {
+      "editor.formatOnSave": true,
+      "editor.tabSize": 3,
+      "editor.insertSpaces": true,
+      "editor.detectIndentation": false,
+      "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[json]": {
+      "editor.formatOnSave": true,
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.detectIndentation": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.formatOnSave": true,
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.detectIndentation": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    ////////////////////////////////////////
+    // Doxygen Documentation Generator
+    ////////////////////////////////////////
+    "doxdocgen.c.commentPrefix": "//! ",
+    "doxdocgen.c.firstLine": "//! ",
+    "doxdocgen.c.lastLine": "//! ",
+    "doxdocgen.c.triggerSequence": "//!",
+    "doxdocgen.file.fileTemplate": "@file   {name}",
+    "doxdocgen.generic.authorTag": "@author {author} ({email})",
+    "doxdocgen.generic.dateTemplate": "@date   {date}",
+    "doxdocgen.file.versionTag": "",
+    "doxdocgen.generic.dateFormat": "MM/DD/YYYY",
+    "doxdocgen.file.copyrightTag": [""],
+    "doxdocgen.file.fileOrder": [
+      "file",
+      "date",
+      "version",
+      "author",
+      "empty",
+      "brief",
+      "empty",
+      "copyright"
+    ],
+    "doxdocgen.generic.order": [
+      "brief",
+      "empty",
+      "tparam",
+      "empty",
+      "param",
+      "empty",
+      "return"
+    ],
+    "doxdocgen.generic.linesToGet": 20,
+    "doxdocgen.generic.splitCasingSmartText": false,
+    "doxdocgen.generic.briefTemplate": "@brief  {text}",
+    "doxdocgen.generic.paramTemplate": "@param  {param} - ",
+    "doxdocgen.cpp.tparamTemplate": "@tparam {param} - ",
+    "doxdocgen.generic.returnTemplate": "@return {type} - ",
+    "doxdocgen.generic.boolReturnsTrueFalse": false,
+    "doxdocgen.generic.useGitUserEmail": true,
+    "doxdocgen.generic.useGitUserName": true,
+    ////////////////////////////////////////
+    // Todo Tree
+    ////////////////////////////////////////
+    "todo-tree.highlights.defaultHighlight": {
+      "icon": "alert",
+      "type": "text-and-comment",
+      "foreground": "#FFF",
+      "background": "#FFF",
+      "opacity": 50,
+      "iconColour": "#FFF",
+      "gutterIcon": true
+    },
+    "todo-tree.highlights.customHighlight": {
+      "@todo": {
+        // syntax, algorithm, type, naming update/improvement
+        "icon": "tasklist",
+        "foreground": "#08F",
+        "background": "#000",
+        "iconColour": "#08F"
+      },
+      "@comment": {
+        // update/add comments to code
+        "icon": "comment",
+        "foreground": "#0F0",
+        "background": "#000",
+        "iconColour": "#0F0"
+      },
+      "@note": {
+        // important comment (contains important information about code quirks)
+        "icon": "note",
+        "foreground": "#DDD",
+        "background": "#000",
+        "iconColour": "#DDD"
+      },
+      "@deleteme": {
+        // code that should not exist (test code)
+        "icon": "trash",
+        "foreground": "#F00",
+        "background": "#000",
+        "iconColour": "#F00"
+      },
+      "@warning": {
+        // potentially dangerous code, needs investigation (lack of sanitation/lack of validation for values/poor thread safety)
+        "icon": "alert",
+        "foreground": "#FF0",
+        "background": "#000",
+        "iconColour": "#FF0"
+      },
+      "@unfinished": {
+        // contains unfinished code
+        "icon": "code",
+        "foreground": "#F60",
+        "background": "#000",
+        "iconColour": "#F60"
+      },
+      "@bug": {
+        // is known dangerous code, does not perform as intended by the requirements
+        "icon": "bug",
+        "foreground": "#F00",
+        "background": "#000",
+        "iconColour": "#F00"
+      },
+      "@question": {
+        // code questioning why something is a certain way, needs investigation and either get an @todo or an @comment
+        "icon": "question",
+        "foreground": "#F0F",
+        "background": "#000",
+        "iconColour": "#F0F"
+      }
+    },
+    "todo-tree.general.tags": [
+      "@todo",
+      "@comment",
+      "@note",
+      "@deleteme",
+      "@warning",
+      "@unfinished",
+      "@bug",
+      "@question"
+    ],
+    "todo-tree.tree.tooltipFormat": "${filepath} - Line ${line}",
+    "todo-tree.regex.regex": "(//|#)[ ]*($TAGS).*",
+    ////////////////////////////////////////
+    // Clang
+    ////////////////////////////////////////
+    "clang-format.executable": "clang-format-14",
+    "cmake.sourceDirectory": "${workspaceFolder}/software",
+    ////////////////////////////////////////
+    "files.associations": {
+      "any": "cpp",
+      "array": "cpp",
+      "atomic": "cpp",
+      "bit": "cpp",
+      "*.tcc": "cpp",
+      "cctype": "cpp",
+      "chrono": "cpp",
+      "clocale": "cpp",
+      "cmath": "cpp",
+      "compare": "cpp",
+      "concepts": "cpp",
+      "condition_variable": "cpp",
+      "cstdarg": "cpp",
+      "cstddef": "cpp",
+      "cstdint": "cpp",
+      "cstdio": "cpp",
+      "cstdlib": "cpp",
+      "ctime": "cpp",
+      "cwchar": "cpp",
+      "cwctype": "cpp",
+      "deque": "cpp",
+      "map": "cpp",
+      "set": "cpp",
+      "string": "cpp",
+      "unordered_map": "cpp",
+      "vector": "cpp",
+      "exception": "cpp",
+      "algorithm": "cpp",
+      "functional": "cpp",
+      "iterator": "cpp",
+      "memory": "cpp",
+      "memory_resource": "cpp",
+      "numeric": "cpp",
+      "optional": "cpp",
+      "random": "cpp",
+      "ratio": "cpp",
+      "string_view": "cpp",
+      "system_error": "cpp",
+      "tuple": "cpp",
+      "type_traits": "cpp",
+      "utility": "cpp",
+      "initializer_list": "cpp",
+      "iomanip": "cpp",
+      "iosfwd": "cpp",
+      "iostream": "cpp",
+      "istream": "cpp",
+      "limits": "cpp",
+      "mutex": "cpp",
+      "new": "cpp",
+      "numbers": "cpp",
+      "ostream": "cpp",
+      "semaphore": "cpp",
+      "sstream": "cpp",
+      "stdexcept": "cpp",
+      "stop_token": "cpp",
+      "streambuf": "cpp",
+      "thread": "cpp",
+      "typeinfo": "cpp",
+      "variant": "cpp",
+      "list": "cpp",
+      "codecvt": "cpp",
+      "fstream": "cpp",
+      "cstring": "cpp",
+      "forward_list": "cpp",
+      "unordered_set": "cpp",
+      "cinttypes": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+    ////////////////////////////////////////
+  }
+  

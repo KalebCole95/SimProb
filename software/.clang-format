@@ -1,0 +1,276 @@
+################################################################################
+# https://releases.llvm.org/14.0.0/tools/clang/docs/ClangFormatStyleOptions.html
+# https://zed0.co.uk/clang-format-configurator/
+################################################################################
+
+DisableFormat: false
+
+########################################
+# General
+########################################
+
+BasedOnStyle: Google
+ColumnLimit: 120
+DeriveLineEnding: false
+Standard: c++17
+TabWidth: 3
+UseCRLF: true
+UseTab: Never
+
+########################################
+# Indention
+########################################
+
+AccessModifierOffset: -3
+ConstructorInitializerIndentWidth: 6
+ContinuationIndentWidth: 3
+IndentCaseBlocks: false
+IndentCaseLabels: true
+IndentExternBlock: Indent
+IndentGotoLabels: true
+IndentPPDirectives: BeforeHash
+IndentRequires: true
+IndentWidth: 3
+IndentWrappedFunctionNames: false
+NamespaceIndentation: All
+
+########################################
+# Alignment
+########################################
+
+AlignArrayOfStructures: Left
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: None
+AlignConsecutiveBitFields: None
+AlignConsecutiveDeclarations: None
+AlignConsecutiveMacros: AcrossComments
+AlignEscapedNewlines: Right
+AlignOperands: AlignAfterOperator
+AlignTrailingComments: true
+
+DerivePointerAlignment: false
+PointerAlignment: Right
+ReferenceAlignment: Pointer
+QualifierAlignment: Custom
+QualifierOrder: ['inline', 'static', 'volatile', 'const', 'constexpr', 'type', 'restrict']
+
+########################################
+# Arguments
+########################################
+
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+
+########################################
+# Short Lines
+########################################
+
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: false
+
+########################################
+# Break
+########################################
+
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Allman
+BreakBeforeConceptDeclarations: true
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: true
+
+########################################
+# Arguments
+########################################
+
+BinPackArguments: false
+BinPackParameters: false
+PackConstructorInitializers: Never
+BitFieldColonSpacing: Before
+BreakConstructorInitializers: BeforeComma
+BreakInheritanceList: BeforeComma
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+
+########################################
+# Whitespace
+########################################
+
+CompactNamespaces: false
+Cpp11BracedListStyle: true
+EmptyLineBeforeAccessModifier: Always
+EmptyLineAfterAccessModifier: Never
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 2
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: false
+SpaceAroundPointerQualifiers: Default
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeCpp11BracedList: true
+SpaceBeforeCtorInitializerColon : true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: false
+  AfterForeachMacros: true
+  AfterFunctionDeclarationName: false
+  AfterFunctionDefinitionName: false
+  AfterIfMacros: false
+  AfterOverloadedOperator: false
+  #AfterRequiresInClause: true
+  #AfterRequiresInExpression: true
+  BeforeNonEmptyParentheses: false
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: false
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 1
+SpacesInAngles: Never
+SpacesInCStyleCastParentheses: false
+SpacesInConditionalStatement: false
+SpacesInContainerLiterals: false
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: -1
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+########################################
+# Modification
+########################################
+
+RemoveBracesLLVM: false
+#SeperateDefinitionBlocks: Always
+
+########################################
+# Comments
+########################################
+
+FixNamespaceComments: true
+ShortNamespaceLines: 10
+ReflowComments: true
+
+########################################
+# Includes
+########################################
+
+SortIncludes: CaseInsensitive 
+IncludeBlocks: Regroup
+IncludeCategories:
+  # Standard Libraries [C]
+  - Regex: '<[a-zA-Z0-9_]*.h>'
+    Priority: 1
+    SortPriority: 1
+  # Standard Libraries [C++]
+  - Regex: '<[a-zA-Z0-9_]*>'
+    Priority: 1
+    SortPriority: 2
+  # InComponent Header to Header [C]
+  - Regex: '"[a-zA-Z0-9_]*.h"'
+    Priority: 2
+    SortPriority: 1
+  # InComponent Header to Header [C++]
+  - Regex: '"[a-zA-Z0-9_]*.hpp"'
+    Priority: 2
+    SortPriority: 2
+  # InComponent Source to Header [C]
+  - Regex: '"..\/[a-zA-Z0-9_]*.h"'
+    Priority: 2
+    SortPriority: 3
+  # InComponent Source to Header [C++]
+  - Regex: '"..\/[a-zA-Z0-9_]*.hpp"'
+    Priority: 2
+    SortPriority: 4
+  # OutComponent Header to Header [C]
+  - Regex: '"..\/[a-zA-Z0-9_]*\/[a-zA-Z0-9_]*.h"'
+    Priority: 3
+    SortPriority: 1
+  # OutComponent Header to Header [C++]
+  - Regex: '"..\/[a-zA-Z0-9_]*\/[a-zA-Z0-9_]*.hpp"'
+    Priority: 3
+    SortPriority: 2
+  # OutComponent Source to Header [C]
+  - Regex: '"..\/..\/[a-zA-Z0-9_]*\/[a-zA-Z0-9_]*.h"'
+    Priority: 3
+    SortPriority: 3
+  # OutComponent Source to Header [C++]
+  - Regex: '"..\/..\/[a-zA-Z0-9_]*\/[a-zA-Z0-9_]*.hpp"'
+    Priority: 3
+    SortPriority: 4
+  # GTest [C/C++]
+  - Regex: '".*(gtest|gmock).*"'
+    Priority: 4
+    SortPriority: 1
+  # Everything Else [C/C++]
+  - Regex: '.*'
+    Priority: 5
+    SortPriority: 5
+#IncludeIsMainRegex:
+#IncludeIsMainSourceRegex:
+SortUsingDeclarations: true
+
+########################################
+# Objective C
+########################################
+
+ObjCBinPackProtocolList: Never
+ObjCBlockIndentWidth: 4
+ObjCBreakBeforeNestedBlockParam: true
+ObjCSpaceAfterProperty: true
+ObjCSpaceBeforeProtocolList: false
+
+########################################
+# Penalty
+########################################
+
+PenaltyBreakAssignment: 100
+#PenaltyBreakBeforeFirstCallParameter:
+#PenaltyBreakComment:
+#PenaltyBreakFirstLessLess:
+#PenaltyBreakString:
+#PenaltyBreakTemplateDeclaration:
+#PenaltyExcessCharacter:
+#PenaltyIndentedWhitespace:
+#PenaltyReturnTypeOnItsOwnLine:
+
+########################################
+# UNSORTED
+########################################
+
+InsertTrailingCommas: Wrapped
+
+########################################
+# Unset
+########################################
+
+#AlwaysBreakAfterDefinitionReturnType:    # DEPRECATED
+#AttributeMacros:
+#BraceWrapping:
+#BreakAfterJavaFieldAnnotations:          # NO JAVA
+#CommentPragmas:
+#ExperimentalAutoDetectBinPacking:        # EXPERIMENTAL
+#ForEachMacros:
+#JavaImportGroups:                        # NO JAVA
+#JavaScriptQuotes:                        # NO JAVA
+#JavaScriptWrapImports:                   # NO JAVA
+#Language:
+#MacroBlockBegin:
+#MacroBlockEnd:
+#NamespaceMacros:
+#RawStringFormats:
+#SortJavaStaticImport:                    # NO JAVA
+#StatementAttributeLikeMacros:
+#StatementMacros:
+#TypenameMacros:
+#WhitespaceSensitiveMacros:
+
+########################################

@@ -1,0 +1,83 @@
+{
+  ////////////////////////////////////////////////////////////////////////////////
+  // Settings
+  ////////////////////////////////////////////////////////////////////////////////
+  "version": "2.0.0",
+  "statusbar.limit": 0,
+  "statusbar.select.label": "$(chevron-left)Tasks$(chevron-right)",
+  "statusbar.select.color": "#FF77FF",
+  "statusbar.default.hide": false,
+  "presentation": {
+    "echo": true,
+    "reveal": "always",
+    "focus": true,
+    "panel": "dedicated",
+    "showReuseMessage": false,
+    "close": false,
+    "clear": true
+  },
+  ////////////////////////////////////////////////////////////////////////////////
+  // Tasks
+  ////////////////////////////////////////////////////////////////////////////////
+  "tasks": [
+    ////////////////////////////////////////
+    // Component Unittest - Generate & Compile & Run
+    ////////////////////////////////////////
+    {
+      "label": "Component Unittest - Generate & Compile & Run",
+      "type": "shell",
+      "command": "cmake",
+      "options": {
+        "cwd": "${workspaceFolder}/software/${input:componentName}"
+      },
+      "problemMatcher": [],
+      "args": [
+        "-B",
+        "build/unittest/debug",
+        "-DCMAKE_BUILD_TYPE=debug",
+        "-DBUILD_SKEW=unittest",
+        "-DBUILD_VERSION=Y--W--B--;",
+        "cmake",
+        "--build",
+        "build/unittest/debug;",
+        "ctest",
+        "--output-on-failure",
+        "--test-dir",
+        "build/unittest/debug",
+        "--output-junit",
+        "build/unittest/unittestLog.xml"
+      ]
+    }
+    ////////////////////////////////////////
+  ],
+  ////////////////////////////////////////////////////////////////////////////////
+  // Inputs
+  ////////////////////////////////////////////////////////////////////////////////
+  "inputs": [
+    {
+      "id": "componentName",
+      "description": "Choose the component",
+      "type": "pickString",
+      "options": ["example"]
+    },
+    {
+      "id": "buildSkew",
+      "description": "Choose the build skew",
+      "type": "pickString",
+      "options": ["linux", "unittest", "stub"]
+    },
+    {
+      "id": "buildType",
+      "description": "Choose the build type",
+      "type": "pickString",
+      "options": ["debug", "release"]
+    },
+    {
+      "id": "buildVersion",
+      "description": "Set the build version",
+      "type": "promptString",
+      "default": "Y--W--B--"
+    }
+  ]
+  ////////////////////////////////////////////////////////////////////////////////
+}
