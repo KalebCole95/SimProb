@@ -39,7 +39,7 @@ set(_STUB_SOURCES "")
 ########################################
 set(_COMPONENT_ROOT_PATH "${CMAKE_CURRENT_LIST_DIR}")
 
-project("${_COMPONENT_NAME}_${CMAKE_BUILD_TYPE}_${BUILD_SKEW}")
+project("${_COMPONENT_NAME}_${BUILD_SKEW}_${CMAKE_BUILD_TYPE}")
 include("${CMAKE_TOOLS_PATH}/component.cmake")
 
 ########################################

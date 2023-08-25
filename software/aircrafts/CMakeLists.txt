@@ -1,5 +1,5 @@
 ########################################
-# File:     chargers CMakeLists.txt
+# File:     aircrafts CMakeLists.txt
 # Created:  8/22/2023
 # By:       Kaleb C
 ########################################
@@ -11,28 +11,29 @@ include("${CMAKE_CURRENT_LIST_DIR}/../defaults.cmake")
 ########################################
 # Component Name
 ########################################
-set(_COMPONENT_NAME "chargers")
+set(_COMPONENT_NAME "aircrafts")
 
 ########################################
 # Target Files
 ########################################
-set(_TARGET_SOURCES "source/charger.cpp")
+set(_TARGET_SOURCES "source/aircrafts.cpp")
 
 ########################################
 # Dependencies
 ########################################
-set(_COMPONENT_DEPENDENCIES "")
+set(_COMPONENT_DEPENDENCIES "chargers"
+                            "units")
 set(_LIBRARY_DEPENDENCIES   "")
 
 ########################################
 # Unittest Files
 ########################################
-set(_TEST_SOURCES "test/charger.test.cpp")
+set(_TEST_SOURCES "test/aircrafts.test.cpp")
 
 ########################################
 # Stub Files
 ########################################
-set(_STUB_SOURCES "source/charger.cpp")
+set(_STUB_SOURCES "")
 
 ########################################
 # Configuration

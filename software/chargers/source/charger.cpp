@@ -14,7 +14,10 @@
 
 namespace chargers
 {
-   bool chargerArray::charge(unsigned int id)
+
+   ////////////////////////////////////////////////////////////////////////////////
+
+   bool ChargeStation::charge(unsigned int id)
    {
       std::list<unsigned int>::iterator it = std::find(_chargingQueue.begin(), _chargingQueue.end(), id);
 
@@ -31,20 +34,28 @@ namespace chargers
       return false;
    }
 
-   void chargerArray::leave(unsigned int id)
+   ////////////////////////////////////////////////////////////////////////////////
+
+   void ChargeStation::leave(unsigned int id)
    {
       _chargingQueue.remove(id);
    }
 
-   unsigned int chargerArray::getPos(unsigned int id)
+   ////////////////////////////////////////////////////////////////////////////////
+
+   unsigned int ChargeStation::getPos(unsigned int id)
    {
       std::list<unsigned int>::iterator it = std::find(_chargingQueue.begin(), _chargingQueue.end(), id);
       return std::distance(_chargingQueue.begin(), it);
    }
 
-   unsigned int chargerArray::queueSize()
+   ////////////////////////////////////////////////////////////////////////////////
+
+   unsigned int ChargeStation::queueSize()
    {
       return _chargingQueue.size();
    }
+
+   ////////////////////////////////////////////////////////////////////////////////
 
 } // namespace chargers

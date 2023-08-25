@@ -47,6 +47,26 @@
         "--output-junit",
         "build/unittest/unittestLog.xml"
       ]
+    },
+    ////////////////////////////////////////
+    {
+      "label": "Target - Generate & Compile & Run",
+      "type": "shell",
+      "command": "cmake",
+      "options": {
+        "cwd": "${workspaceFolder}/software"
+      },
+      "problemMatcher": [],
+      "args": [
+        "-B",
+        "../build/linux/debug",
+        "-DCMAKE_BUILD_TYPE=debug",
+        "-DBUILD_SKEW=linux",
+        "-DBUILD_VERSION=Y--W--B--;",
+        "cmake",
+        "--build",
+        "../build/linux/debug"
+      ]
     }
     ////////////////////////////////////////
   ],
@@ -58,7 +78,7 @@
       "id": "componentName",
       "description": "Choose the component",
       "type": "pickString",
-      "options": ["example", "units", "chargers"]
+      "options": ["example", "units", "chargers", "aircrafts"]
     },
     {
       "id": "buildSkew",

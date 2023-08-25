@@ -15,10 +15,13 @@
 
 namespace chargers
 {
-   class chargerArray
+
+   ////////////////////////////////////////////////////////////////////////////////
+
+   class ChargeStation
    {
    public:
-      chargerArray(unsigned int chargerCount)
+      ChargeStation(unsigned int chargerCount)
             : chargerCount(chargerCount)
       {
       }
@@ -34,6 +37,9 @@ namespace chargers
    protected:
       std::list<unsigned int> _chargingQueue = {};
    };
+
+   ////////////////////////////////////////////////////////////////////////////////
+
 } // namespace chargers
 
 #endif // _CHARGERS_CHARGER_HPP_
