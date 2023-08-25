@@ -23,22 +23,22 @@ TEST(time, compiles)
 
 TEST(time, seconds_10)
 {
-   EXPECT_EQ(10_sec, Time(10));
+   EXPECT_EQ(10_sec, Time(10000));
 }
 
 TEST(time, seconds_30)
 {
-   EXPECT_EQ(30_sec, Time(30));
+   EXPECT_EQ(30_sec, Time(30000));
 }
 
 TEST(time, seconds_60)
 {
-   EXPECT_EQ(60_sec, Time(60));
+   EXPECT_EQ(60_sec, Time(60000));
 }
 
 TEST(time, seconds_230)
 {
-   EXPECT_EQ(230_sec, Time(230));
+   EXPECT_EQ(230_sec, Time(230000));
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -98,6 +98,23 @@ TEST(time, incr_60)
    time += 15_sec;
 
    EXPECT_EQ(60_sec, time);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+TEST(time, div_1)
+{
+   EXPECT_EQ(1, 60_sec / 1_min);
+}
+
+TEST(time, div_2)
+{
+   EXPECT_EQ(1, 3600_sec / 1_hour);
+}
+
+TEST(time, div_3)
+{
+   EXPECT_EQ(0.5, 1800_sec / 1_hour);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -23,7 +23,7 @@ TEST(chargers, compiles)
 
 TEST(chargers, size_1)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    chargers.charge(0);
 
@@ -32,7 +32,7 @@ TEST(chargers, size_1)
 
 TEST(chargers, size_3)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    chargers.charge(0);
    chargers.charge(1);
@@ -43,7 +43,7 @@ TEST(chargers, size_3)
 
 TEST(chargers, size_25)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    for(size_t ii = 0; ii < 25; ii++)
    {
@@ -57,7 +57,7 @@ TEST(chargers, size_25)
 
 TEST(chargers, pos_0_1)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    chargers.charge(0);
 
@@ -66,7 +66,7 @@ TEST(chargers, pos_0_1)
 
 TEST(chargers, pos_1_5)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    for(size_t ii = 0; ii < 5; ii++)
    {
@@ -78,7 +78,7 @@ TEST(chargers, pos_1_5)
 
 TEST(chargers, pos_5_10)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    for(size_t ii = 0; ii < 10; ii++)
    {
@@ -92,14 +92,14 @@ TEST(chargers, pos_5_10)
 
 TEST(chargers, isCharging_0)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    EXPECT_TRUE(chargers.charge(0));
 }
 
 TEST(chargers, isCharging_1)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    chargers.charge(0);
 
@@ -108,7 +108,7 @@ TEST(chargers, isCharging_1)
 
 TEST(chargers, isCharging_2)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    chargers.charge(0);
    chargers.charge(1);
@@ -118,7 +118,7 @@ TEST(chargers, isCharging_2)
 
 TEST(chargers, isCharging_3)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    chargers.charge(0);
    chargers.charge(1);
@@ -129,7 +129,7 @@ TEST(chargers, isCharging_3)
 
 TEST(chargers, isCharging_4)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    chargers.charge(0);
    chargers.charge(1);
@@ -143,7 +143,7 @@ TEST(chargers, isCharging_4)
 
 TEST(chargers, duplicates_1)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    for(size_t ii = 0; ii < 5; ii++)
    {
@@ -155,7 +155,7 @@ TEST(chargers, duplicates_1)
 
 TEST(chargers, duplicates_2)
 {
-   chargers::chargerArray chargers(3);
+   chargers::ChargeStation chargers(3);
 
    for(size_t ii = 0; ii < 20; ii++)
    {

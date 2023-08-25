@@ -42,7 +42,7 @@ else()
     PRINT("      Library Type:  INTERFACE")
     include_directories(${_PUBLIC_INCLUDE_DIRECTORIES} ${_PRIVATE_INCLUDE_DIRECTORIES})
     add_library(${PROJECT_NAME} INTERFACE ${_SOURCES})
-    target_link_libraries(${PROJECT_NAME} PRIVATE ${_DEPENDENCY_LIBRARY_NAMES})
+    target_link_libraries(${PROJECT_NAME} INTERFACE ${_DEPENDENCY_LIBRARY_NAMES})
     target_include_directories(${PROJECT_NAME}
             INTERFACE ${_PUBLIC_INCLUDE_DIRECTORIES} ${_PRIVATE_INCLUDE_DIRECTORIES})
 endif()
