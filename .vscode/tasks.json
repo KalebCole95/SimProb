@@ -78,7 +78,7 @@
       "id": "componentName",
       "description": "Choose the component",
       "type": "pickString",
-      "options": ["example", "units", "chargers", "aircrafts"]
+      "options": ["example", "units", "chargers", "aircrafts", "statistics"]
     },
     {
       "id": "buildSkew",

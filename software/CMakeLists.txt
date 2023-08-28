@@ -24,7 +24,8 @@ set(_PROJECT_SOURCES                "main.cpp")
 set(_PROJECT_INCLUDE_DIRECTORIES    ".")
 set(_PROJECT_COMPONENTS             "aircrafts"
                                     "chargers"
-                                    "units")
+                                    "units"
+                                    "statistics")
 set(_PROJECT_LIBRARIES              "")
 
 ########################################

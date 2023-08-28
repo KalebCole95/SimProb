@@ -16,7 +16,7 @@ set(_COMPONENT_NAME "units")
 ########################################
 # Target Files
 ########################################
-set(_TARGET_SOURCES "")
+set(_TARGET_SOURCES "source/time.cpp")
 
 ########################################
 # Dependencies
@@ -32,7 +32,7 @@ set(_TEST_SOURCES "test/time.test.cpp")
 ########################################
 # Stub Files
 ########################################
-set(_STUB_SOURCES "")
+set(_STUB_SOURCES "source/time.cpp")
 
 ########################################
 # Configuration

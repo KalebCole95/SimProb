@@ -5,6 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Target Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/build/linux/debug",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "program": "${workspaceRoot}/build/linux/debug/SimProb_linux_debug",
+      "stopAtEntry": false
+    },
+    {
       "name": "Unittest Debug",
       "type": "cppdbg",
       "request": "launch",
@@ -19,7 +28,7 @@
       "id": "componentName",
       "description": "Choose the component",
       "type": "pickString",
-      "options": ["example", "units", "chargers", "aircrafts"]
+      "options": ["example", "units", "chargers", "aircrafts", "statistics"]
     }
   ]
 }

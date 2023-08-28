@@ -28,7 +28,8 @@ namespace aircrafts
       StartFlying,
       Flying,
       StartCharging,
-      Charging
+      Charging,
+      FinishCharging
    };
 
    enum struct AircraftType : uint8_t
@@ -40,6 +41,8 @@ namespace aircrafts
       Delta,
       Echo
    };
+
+   std::ostream &operator<<(std::ostream &ostream, const AircraftType &aircraftType);
 
    ////////////////////////////////////////////////////////////////////////////////
 
@@ -78,7 +81,7 @@ namespace aircrafts
       {
       }
 
-      Time operate(chargers::ChargeStation chargerStation, Time operationTime);
+      Time operate(chargers::ChargeStation &chargerStation, Time operationTime);
 
       const AircraftType type;
       const unsigned int id;
