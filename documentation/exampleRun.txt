@@ -1,0 +1,43 @@
+ ===== Alpha Aircraft (4) ===== 
+   Average Flight Time:                 1h 22m 46s 147ms
+   Average Flight Distance:             165.538 miles
+   Average Charging Time:               0h 11m 35s 965ms
+   Average Attempted Charging Time:     0h 19m 23s 965ms
+   Total Faults:                        6 faults
+   Total Passenger Miles:               5297.22 miles
+
+
+ ===== Bravo Aircraft (4) ===== 
+   Average Flight Time:                 0h 34m 2s 129ms
+   Average Flight Distance:             56.7258 miles
+   Average Charging Time:               0h 8m 25s 631ms
+   Average Attempted Charging Time:     0h 19m 6s 91ms
+   Total Faults:                        1 faults
+   Total Passenger Miles:               4254.44 miles
+
+
+ ===== Charlie Aircraft (5) ===== 
+   Average Flight Time:                 0h 33m 13s 503ms
+   Average Flight Distance:             88.6001 miles
+   Average Charging Time:               0h 8m 31s 178ms
+   Average Attempted Charging Time:     0h 11m 23s 778ms
+   Total Faults:                        1 faults
+   Total Passenger Miles:               5847.61 miles
+
+
+ ===== Delta Aircraft (4) ===== 
+   Average Flight Time:                 1h 29m 17s 255ms
+   Average Flight Distance:             133.931 miles
+   Average Charging Time:               0h 4m 48s 0ms
+   Average Attempted Charging Time:     0h 6m 21s 750ms
+   Total Faults:                        3 faults
+   Total Passenger Miles:               2142.9 miles
+
+
+ ===== Echo Aircraft (3) ===== 
+   Average Flight Time:                 0h 51m 3s 997ms
+   Average Flight Distance:             25.5333 miles
+   Average Charging Time:               0h 7m 24s 546ms
+   Average Attempted Charging Time:     0h 15m 52s 133ms
+   Total Faults:                        6 faults
+   Total Passenger Miles:               459.6 miles

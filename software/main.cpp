@@ -86,7 +86,6 @@ int main()
 
    for(size_t ii = 0; ii < aircraftCount; ii++)
    {
-      std::cout << "T: " << aircraftVector[ii]->id << std::endl;
       switch(aircraftVector[ii]->type)
       {
          case aircrafts::AircraftType::Alpha:
