@@ -14,13 +14,41 @@
 
 namespace aircrafts
 {
+   ////////////////////////////////////////////////////////////////////////////////
+
+   std::ostream &operator<<(std::ostream &ostream, const AircraftType &aircraftType)
+   {
+      switch(aircraftType)
+      {
+         case AircraftType::Alpha:
+            ostream << "Alpha Aircraft";
+            break;
+         case AircraftType::Bravo:
+            ostream << "Bravo Aircraft";
+            break;
+         case AircraftType::Charlie:
+            ostream << "Charlie Aircraft";
+            break;
+         case AircraftType::Delta:
+            ostream << "Delta Aircraft";
+            break;
+         case AircraftType::Echo:
+            ostream << "Echo Aircraft";
+            break;
+         default:
+            ostream << "Unknown Aircraft Type";
+      }
+      return ostream;
+   }
 
    ////////////////////////////////////////////////////////////////////////////////
 
-   Time AircraftBase::operate(chargers::ChargeStation chargeStation, Time operationTime)
+   Time AircraftBase::operate(chargers::ChargeStation &chargeStation, Time operationTime)
    {
       switch(_state)
       {
+         case AircraftState::FinishCharging:
+            chargeStation.leave(id);
          case AircraftState::StartFlying:
             _totalFlights++;
             _state = AircraftState::Flying;
@@ -54,8 +82,7 @@ namespace aircrafts
             if(_batteryLevel >= batteryCapacity)
             {
                _batteryLevel = batteryCapacity;
-               _state = AircraftState::StartFlying;
-               chargeStation.leave(id);
+               _state = AircraftState::FinishCharging;
                return (((long double)_batteryLevel / energyPerMile) / speed) * 1_hour;
             }
             else

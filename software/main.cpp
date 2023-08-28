@@ -11,17 +11,19 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <vector>
 
 #include "aircrafts/aircrafts.hpp"
+#include "statistics/stats.hpp"
 #include "units/time.hpp"
 
-constexpr unsigned int chargerCount = 3;
+constexpr unsigned int chargerCount = 1;
 constexpr unsigned int aircraftCount = 20;
 constexpr Time totalRunTime = 3_hour;
 
 int main()
 {
-   aircrafts::AircraftBase **aircraftArray = new aircrafts::AircraftBase *[aircraftCount];
+   std::vector<aircrafts::AircraftBase *> aircraftVector;
 
    std::srand(std::time(nullptr));
 
@@ -31,24 +33,24 @@ int main()
       switch(std::rand() % 5)
       {
          case 0:
-            aircraftArray[ii] = new aircrafts::AlphaAircraft(ii);
+            aircraftVector.push_back(new aircrafts::AlphaAircraft(ii));
             std::cout << "   Alpha" << std::endl;
             break;
          case 1:
-            aircraftArray[ii] = new aircrafts::BravoAircraft(ii);
+            aircraftVector.push_back(new aircrafts::BravoAircraft(ii));
             std::cout << "   Bravo" << std::endl;
             break;
          case 2:
-            aircraftArray[ii] = new aircrafts::CharlieAircraft(ii);
+            aircraftVector.push_back(new aircrafts::CharlieAircraft(ii));
             std::cout << "   Charlie" << std::endl;
             break;
          case 3:
-            aircraftArray[ii] = new aircrafts::DeltaAircraft(ii);
+            aircraftVector.push_back(new aircrafts::DeltaAircraft(ii));
             std::cout << "   Delta" << std::endl;
             break;
          case 4:
          default:
-            aircraftArray[ii] = new aircrafts::EchoAircraft(ii);
+            aircraftVector.push_back(new aircrafts::EchoAircraft(ii));
             std::cout << "   Echo" << std::endl;
             break;
       }
@@ -57,20 +59,62 @@ int main()
    chargers::ChargeStation chargeStation(3);
    Time totalTimeRemaining = totalRunTime;
    Time nextOperationTime = totalRunTime;
-   Time currentOperationTime = totalRunTime;
+   Time currentOperationTime = 0_sec;
 
-   std::cout << "Starting Simulation" << std::endl;
+   std::cout << "Starting Simulation..." << std::endl;
    while(totalTimeRemaining > 0_sec)
    {
       for(size_t ii = 0; ii < aircraftCount; ii++)
       {
          nextOperationTime = std::min(nextOperationTime,
-                                      aircraftArray[ii]->operate(chargeStation, currentOperationTime));
+                                      aircraftVector[ii]->operate(chargeStation, currentOperationTime));
       }
 
-      totalTimeRemaining -= currentOperationTime;
+      totalTimeRemaining -= currentOperationTime < totalTimeRemaining ? currentOperationTime : totalTimeRemaining;
       currentOperationTime = nextOperationTime;
       nextOperationTime = totalRunTime;
    }
+
+   std::cout << "Compiling Results..." << std::endl;
+
+   statistics::AircraftStats alphaStats(new aircrafts::AlphaAircraft(0));
+   statistics::AircraftStats bravoStats(new aircrafts::BravoAircraft(0));
+   statistics::AircraftStats charlieStats(new aircrafts::CharlieAircraft(0));
+   statistics::AircraftStats deltaStats(new aircrafts::DeltaAircraft(0));
+   statistics::AircraftStats echoStats(new aircrafts::EchoAircraft(0));
+
+
+   for(size_t ii = 0; ii < aircraftCount; ii++)
+   {
+      std::cout << "T: " << aircraftVector[ii]->id << std::endl;
+      switch(aircraftVector[ii]->type)
+      {
+         case aircrafts::AircraftType::Alpha:
+            alphaStats.addData(aircraftVector[ii]);
+            break;
+         case aircrafts::AircraftType::Bravo:
+            bravoStats.addData(aircraftVector[ii]);
+            break;
+         case aircrafts::AircraftType::Charlie:
+            charlieStats.addData(aircraftVector[ii]);
+            break;
+         case aircrafts::AircraftType::Delta:
+            deltaStats.addData(aircraftVector[ii]);
+            break;
+         case aircrafts::AircraftType::Echo:
+            echoStats.addData(aircraftVector[ii]);
+            break;
+         default:
+            break;
+      }
+   }
+
+   std::cout << "Printing Results..." << std::endl;
+   alphaStats.printStatistics();
+   bravoStats.printStatistics();
+   charlieStats.printStatistics();
+   deltaStats.printStatistics();
+   echoStats.printStatistics();
+
    std::cout << "Simulation Complete" << std::endl;
 }

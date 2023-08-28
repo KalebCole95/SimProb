@@ -24,10 +24,16 @@ public:
    {
    }
 
-   friend std::ostream &operator<<(std::ostream &output, const Time &rhs)
+   Time &operator+=(const Time &rhs)
    {
-      output << rhs.milliseconds << "ms";
-      return output;
+      this->milliseconds += rhs.milliseconds;
+      return *this;
+   }
+
+   Time &operator-=(const Time &rhs)
+   {
+      this->milliseconds -= rhs.milliseconds;
+      return *this;
    }
 
    friend bool operator==(const Time &lhs, const Time &rhs) { return lhs.milliseconds == rhs.milliseconds; }
@@ -56,6 +62,26 @@ public:
       return (long double)lhs.milliseconds / (long double)rhs.milliseconds;
    }
 
+   friend Time operator%(const Time &lhs, const Time &rhs)
+   {
+      Time result(0);
+      result.milliseconds = lhs.milliseconds % rhs.milliseconds;
+      return result;
+   }
+
+   friend Time operator/(const Time &lhs, unsigned int rhs)
+   {
+      Time result(0);
+
+      if(rhs == 0)
+      {
+         return result;
+      }
+
+      result.milliseconds = lhs.milliseconds / rhs;
+      return result;
+   }
+
    friend Time operator*(const unsigned long long lhs, const Time &rhs)
    {
       Time result(0);
@@ -74,20 +100,10 @@ public:
    friend Time operator*(const Time &lhs, const unsigned long long rhs) { return rhs * lhs; }
    friend Time operator*(const Time &lhs, const long double rhs) { return rhs * lhs; }
 
-   Time &operator+=(const Time &rhs)
-   {
-      this->milliseconds += rhs.milliseconds;
-      return *this;
-   }
-
-   Time &operator-=(const Time &rhs)
-   {
-      this->milliseconds -= rhs.milliseconds;
-      return *this;
-   }
+   friend std::ostream &operator<<(std::ostream &output, const Time &rhs);
 
 protected:
-   unsigned long long milliseconds;
+   long long milliseconds;
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -121,6 +137,9 @@ constexpr Time operator""_hour(long double hours)
 {
    return Time {(unsigned long long int)(hours * 60 * 60 * 1000)};
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
 
 ////////////////////////////////////////////////////////////////////////////////
 
