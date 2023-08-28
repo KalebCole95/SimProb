@@ -1,6 +1,6 @@
 {
   "name": "Nexus System Controller - Release 4",
-  "build": {"dockerfile" : "../tools/docker/dockerfile"},
+  "build": { "dockerfile": "../tools/docker/dockerfile" },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -26,5 +26,8 @@
     }
   },
   "runArgs": ["--name", "SimProb"],
-  "postAttachCommand": ""
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:${containerWorkspaceFolder}/tools/pythonTools"
+  },
+  "postAttachCommand": "chmod 777 ${containerWorkspaceFolder}/tools/pythonTools/*"
 }

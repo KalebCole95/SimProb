@@ -21,36 +21,75 @@
   ////////////////////////////////////////////////////////////////////////////////
   "tasks": [
     ////////////////////////////////////////
-    // Component Unittest - Generate & Compile & Run
+    // Component Unittest - Generate Compile
     ////////////////////////////////////////
     {
-      "label": "Component Unittest - Generate & Compile & Run",
+      "label": "Component Unittest - Generate & Compile",
       "type": "shell",
-      "command": "cmake",
-      "options": {
-        "cwd": "${workspaceFolder}/software/${input:componentName}"
-      },
+      "options": {},
       "problemMatcher": [],
+      "command": "unittestAssistant.py",
       "args": [
-        "-B",
-        "build/unittest/debug",
-        "-DCMAKE_BUILD_TYPE=debug",
-        "-DBUILD_SKEW=unittest",
-        "-DBUILD_VERSION=Y--W--B--;",
-        "cmake",
-        "--build",
-        "build/unittest/debug;",
-        "ctest",
-        "--output-on-failure",
-        "--test-dir",
-        "build/unittest/debug",
-        "--output-junit",
-        "build/unittest/unittestLog.xml"
+        "--generate-build-files",
+        "--compile",
+        "--subset",
+        "${input:componentName}",
+        "--build-version",
+        "Y--W--B--",
+        "--verbosity",
+        "2"
       ]
     },
     ////////////////////////////////////////
+    // Component Unittest - Generate Compile Run Coverage
+    ////////////////////////////////////////
     {
-      "label": "Target - Generate & Compile & Run",
+      "label": "Component Unittest - Generate & Compile & Run & Coverage",
+      "type": "shell",
+      "options": {},
+      "problemMatcher": [],
+      "command": "unittestAssistant.py",
+      "args": [
+        "--generate-build-files",
+        "--compile",
+        "--run-unittests",
+        "--generate-coverage",
+        "--merge-coverage",
+        "--subset",
+        "${input:componentName}",
+        "--build-version",
+        "Y--W--B--",
+        "--verbosity",
+        "2"
+      ]
+    },
+    ////////////////////////////////////////
+    // All Unittests - Generate & Compile & Run & Coverage
+    ////////////////////////////////////////
+    {
+      "label": "All Unittests - Generate & Compile & Run & Coverage",
+      "type": "shell",
+      "options": {},
+      "problemMatcher": [],
+      "command": "unittestAssistant.py",
+      "args": [
+        "--generate-build-files",
+        "--compile",
+        "--run-unittests",
+        "--generate-coverage",
+        "--merge-coverage",
+        "--build-version",
+        "Y--W--B--",
+        "--silent",
+        "--verbosity",
+        "0"
+      ]
+    },
+    ////////////////////////////////////////
+    // Target - Generated & Compile
+    ////////////////////////////////////////
+    {
+      "label": "Target - Generate & Compile",
       "type": "shell",
       "command": "cmake",
       "options": {
